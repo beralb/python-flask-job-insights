@@ -25,7 +25,6 @@ def get_unique_industries(path: str) -> List[str]:
             and job["industry"] != ""
         ):
             unique_industries_list.append(job["industry"])
-    print(unique_industries_list)
     return unique_industries_list
 
 

@@ -49,7 +49,6 @@ def get_min_salary(path: str) -> int:
         salary = job["min_salary"]
         if salary.isdigit():
             salaries.append(int(salary))
-
     return min(salaries)
 
 
@@ -114,8 +113,8 @@ def filter_by_salary_range(
     for job in jobs:
         try:
             job_matches_salary_range = matches_salary_range(job, salary)
-        except ValueError as error:
-            print(f"Error: {error}")
+        except ValueError:
+            # print(f"Error: {error}")
             continue
         if job_matches_salary_range:
             filtered_jobs_list.append(job)
