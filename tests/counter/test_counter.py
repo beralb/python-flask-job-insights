@@ -3,6 +3,6 @@ from src.pre_built.counter import count_ocurrences
 
 def test_counter():
     path = 'data/jobs.csv'
-    word = 'developer'
+    word = 'python'
     result = count_ocurrences(path, word)
-    assert result == 352
+    assert result == 1639
