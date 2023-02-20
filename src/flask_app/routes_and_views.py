@@ -46,22 +46,24 @@ def index():
 
 @bp.route("/jobs")
 def list_jobs():
-    first_job = get_int_from_args("first_job", 0)
-    amount = get_int_from_args("amount", 20)
-    salary = get_int_from_args("salary", None)
-    industry = request.args.get("industry", None)
-    job_type = request.args.get("job_type", None)
-
     jobs = read(path="data/jobs.csv")
+
+    # Check for query parameters and filter jobs
+    salary = request.args.get("salary")
+    if salary:
+        jobs = filter_by_salary_range(jobs, int(salary))
+
+    industry = request.args.get("industry")
     if industry:
         jobs = filter_by_industry(jobs, industry)
+
+    job_type = request.args.get("job_type")
     if job_type:
         jobs = filter_by_job_type(jobs, job_type)
-    if salary:
-        jobs = filter_by_salary_range(jobs, salary)
 
+    first_job = get_int_from_args("first_job", 0)
+    amount = get_int_from_args("amount", 20)
     jobs = slice_jobs(jobs, first_job, amount)
-
     build_jobs_urls(jobs)
 
     ctx = {
@@ -82,8 +84,14 @@ def list_jobs():
 
 @bp.route("/job/<int:index>")
 def job(index: int):
-    jobs = read(path="data/jobs.csv")
-    job = get_job(jobs, index)
+    jobs_list = read(path="data/jobs.csv")
+    jobs_to_render = []
+    for row in jobs_list:
+        row["id"] = int(row["id"])
+        jobs_to_render.append(row)
+    job = get_job(jobs_to_render, int(index))
+    if job is None:
+        return "Job not found", 404
     return render_template("job.jinja2", job=job)
 
 

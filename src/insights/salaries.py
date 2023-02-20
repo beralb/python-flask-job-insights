@@ -114,7 +114,6 @@ def filter_by_salary_range(
         try:
             job_matches_salary_range = matches_salary_range(job, salary)
         except ValueError:
-            # print(f"Error: {error}")
             continue
         if job_matches_salary_range:
             filtered_jobs_list.append(job)
