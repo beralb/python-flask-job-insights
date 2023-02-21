@@ -23,8 +23,6 @@ Writing modules and importing them into other codes.
 <p>To run the repository locally, clone the project and use the following commands to initialize Docker and install the dependencies:</p>
 
 ````
-docker-compose up -d
-
 python3 -m pip install -r dev-requirements.txt // to install the dependencies
 docker-compose up -d // to execute the app 
 in your favorite browser, go to address bar and navigate to address localhost:500 // to see html pages rendering the app
