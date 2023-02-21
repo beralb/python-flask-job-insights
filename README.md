@@ -49,10 +49,11 @@ python3 -m pytest
 
 <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> 
 </a>
-<a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> 
-</a>
 <a href="https://palletsprojects.com/p/flask//" target="_blank" rel="noreferrer"> <img src="https://github.com/beralb/python-flask-job-insights/blob/main/images/flask.png" alt="flask" width="40" height="40"/> 
 </a>
+<a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> 
+</a>
+
 
 
 </p>
